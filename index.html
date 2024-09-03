@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Harness</title>
+  </head>
+  <body>
+    <h1>Web Store Test Harness</h1>
+    <script type="module">
+      import { sessionStore, localStore } from './index.js';
+
+      {
+        const testStore = localStore('test-store');
+
+        testStore.set({ hello: 'world' });
+        const result = testStore.get();
+        console.dir(result);
+
+        alert('Pause');
+
+        const testAgain = localStore('test-again');
+        testAgain.set({ hello: 'again' });
+        testAgain.remove();
+
+        alert('Pause');
+        testStore.clear();
+      }
+
+      {
+        const testStore = sessionStore('test-store');
+
+        testStore.set({ hello: 'world' });
+        const result = testStore.get();
+        console.dir(result);
+
+        alert('Pause');
+
+        const testAgain = sessionStore('test-again');
+        testAgain.set({ hello: 'again' });
+        testAgain.remove();
+
+        alert('Pause');
+        testStore.clear();
+      }
+    </script>
+  </body>
+</html>

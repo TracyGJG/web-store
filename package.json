@@ -1,0 +1,29 @@
+{
+  "name": "web-store",
+  "version": "1.0.0",
+  "description": "A small library of functions to facilitate easier storage of data in the web browser.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "coverage": "node --test --experimental-test-coverage"
+  },
+  "author": "Tracy-Gregory Gilmore",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TracyGJG/web-store.git"
+  },
+  "keywords": [
+    "web storage",
+    "webStorage",
+    "local storage",
+    "localStorage",
+    "session storage",
+    "sessionStorage"
+  ],
+  "homepage": "https://github.com/TracyGJG/web-store#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
