@@ -8,40 +8,28 @@
   <body>
     <h1>Web Store Test Harness</h1>
     <script type="module">
-      import { sessionStore, localStore } from './index.js';
+      import webStore from './index.js';
+
+      const { sessionStore, localStore } = webStore(globalThis);
 
       {
         const testStore = localStore('test-store');
-
         testStore.set({ hello: 'world' });
+
         const result = testStore.get();
         console.dir(result);
 
-        alert('Pause');
-
-        const testAgain = localStore('test-again');
-        testAgain.set({ hello: 'again' });
-        testAgain.remove();
-
-        alert('Pause');
-        testStore.clear();
+        testStore.remove();
       }
 
       {
         const testStore = sessionStore('test-store');
-
         testStore.set({ hello: 'world' });
+
         const result = testStore.get();
         console.dir(result);
 
-        alert('Pause');
-
-        const testAgain = sessionStore('test-again');
-        testAgain.set({ hello: 'again' });
-        testAgain.remove();
-
-        alert('Pause');
-        testStore.clear();
+        testStore.remove();
       }
     </script>
   </body>

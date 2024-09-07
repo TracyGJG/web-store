@@ -1,5 +1,4 @@
 function webStore(keyName, webStorage) {
-  const clear = () => webStorage.clear();
   const get = (defaultValue = null) => {
     const value = webStorage.getItem(keyName);
     return value ? JSON.parse(value) : defaultValue;
@@ -15,17 +14,15 @@ function webStore(keyName, webStorage) {
   };
 
   return {
-    clear,
     get,
     remove,
     set,
   };
 }
 
-export function sessionStore(keyName) {
-  return webStore(keyName, sessionStorage);
-}
-
-export function localStore(keyName) {
-  return webStore(keyName, localStorage);
+export default function (globalObject) {
+  return {
+    sessionStore: keyName => webStore(keyName, globalObject.sessionStorage),
+    localStore: keyName => webStore(keyName, globalObject.localStorage),
+  };
 }

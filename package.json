@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
+    "watch": "node --watch",
     "coverage": "node --test --experimental-test-coverage"
   },
   "author": "Tracy-Gregory Gilmore",

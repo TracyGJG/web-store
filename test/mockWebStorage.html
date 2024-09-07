@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebStorage</title>
+  </head>
+  <body>
+    <h1>Mock Web Storage Test Harness</h1>
+
+    <script type="module">
+      import { localStorage, sessionStorage } from './mockWebStorage.js';
+
+      function testSuite(testSuiteName, webStorage) {
+        console.log(`\ntestSuiteName: ${testSuiteName}\n`);
+        console.log(webStorage.getItem('alpha'), webStorage.getItem('delta'));
+
+        webStorage.setItem('alpha', 'beta');
+        webStorage.setItem('delta', 'gamma');
+        console.log(webStorage.getItem('alpha'), webStorage.getItem('delta'));
+
+        console.log(webStorage.getItem('delta'));
+        webStorage.removeItem('delta');
+        console.log(webStorage.getItem('alpha'), webStorage.getItem('delta'));
+      }
+
+      testSuite('localStorage', localStorage);
+      testSuite('sessionStorage', sessionStorage);
+    </script>
+  </body>
+</html>
